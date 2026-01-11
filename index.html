@@ -2,50 +2,69 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Smart Parking – Live Status</title>
+  <title>ParkSense – Live Parking Status</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h1>🚗 Smart Parking System</h1>
+  <header>
+    <h1>🚗 ParkSense</h1>
+    <p class="subtitle">Smart Parking • Live Slot Monitoring</p>
+  </header>
 
   <!-- SUMMARY -->
   <div class="summary">
-    <div>Total Slots: <span id="totalSlots">6</span></div>
-    <div>Available Slots: <span id="freeSlots">0</span></div>
+    <div class="card">Total Slots<br><span id="totalSlots">6</span></div>
+    <div class="card">Available Slots<br><span id="freeSlots">0</span></div>
   </div>
 
   <!-- PARKING AREA -->
   <div class="parking-area">
 
-    <!-- TOP ROW (Slot 1–4) -->
+    <!-- TOP ROW -->
     <div class="row top-row">
-      <div class="slot" id="slot1">Slot 1</div>
-      <div class="slot" id="slot2">Slot 2</div>
-      <div class="slot" id="slot3">Slot 3</div>
-      <div class="slot" id="slot4">Slot 4</div>
+      <div class="slot-container">
+        <div class="slot" id="slot1"><span>Slot 1</span></div>
+      </div>
+      <div class="slot-container">
+        <div class="slot" id="slot2"><span>Slot 2</span></div>
+      </div>
+      <div class="slot-container">
+        <div class="slot" id="slot3"><span>Slot 3</span></div>
+      </div>
+      <div class="slot-container">
+        <div class="slot" id="slot4"><span>Slot 4</span></div>
+      </div>
     </div>
 
-    <!-- ROAD -->
-    <div class="road">← Drive Way →</div>
+    <!-- DRIVEWAY -->
+    <div class="road">
+      <div class="lane"></div>
+      <span>← DRIVE WAY →</span>
+      <div class="lane"></div>
+    </div>
 
-    <!-- BOTTOM ROW (Slot 5–6) -->
+    <!-- BOTTOM ROW -->
     <div class="row bottom-row">
-      <div class="slot" id="slot5">Slot 5</div>
-      <div class="slot" id="slot6">Slot 6</div>
+      <div class="slot-container">
+        <div class="slot" id="slot5"><span>Slot 5</span></div>
+      </div>
+      <div class="slot-container">
+        <div class="slot" id="slot6"><span>Slot 6</span></div>
+      </div>
     </div>
 
-    <!-- ENTRY / EXIT LABELS -->
+    <!-- GATES -->
     <div class="gate entry">ENTRY</div>
     <div class="gate exit">EXIT</div>
 
   </div>
 
-  <!-- Firebase SDKs (v8) -->
+  <!-- Firebase v8 SDK -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
-  <!-- Firebase Config (PASTE YOURS HERE) -->
+  <!-- Firebase Config (keep yours) -->
   <script>
     var firebaseConfig = {
       apiKey: "AIzaSyC6uSnoIkSboxvI_xfjN4PgNs0-7xbe58I",
@@ -55,6 +74,9 @@
       storageBucket: "parksense-d44f1.firebasestorage.app",
       messagingSenderId: "356287142590",
       appId: "1:356287142590:web:c254edb69cc378f010dcef"
+    };
+    firebase.initializeApp(firebaseConfig);
+
     };
     firebase.initializeApp(firebaseConfig);
   </script>
