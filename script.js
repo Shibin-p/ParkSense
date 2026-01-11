@@ -7,15 +7,19 @@ database.ref("slots").on("value", function(snapshot) {
 
   for (var slot in slots) {
     total++;
-    var element = document.getElementById(slot);
 
-    element.classList.remove("free", "occupied");
+    var slotDiv = document.getElementById(slot);
+    var statusDiv = slotDiv.querySelector(".slot-status");
+
+    slotDiv.classList.remove("free", "occupied");
 
     if (slots[slot] === "free") {
-      element.classList.add("free");
+      slotDiv.classList.add("free");
+      statusDiv.innerText = "FREE";
       freeCount++;
     } else {
-      element.classList.add("occupied");
+      slotDiv.classList.add("occupied");
+      statusDiv.innerText = "OCCUPIED";
     }
   }
 
